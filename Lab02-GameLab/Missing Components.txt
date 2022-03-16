@@ -1,0 +1,2 @@
+A missing component could be a scoreboard for how many asteroids we had left. Another missing component could be a
+table showing the amount of heart's we have left before game over.
