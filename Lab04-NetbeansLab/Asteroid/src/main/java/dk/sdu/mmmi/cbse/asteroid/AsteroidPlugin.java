@@ -10,8 +10,6 @@ import dk.sdu.mmmi.cbse.common.data.entityparts.PositionPart;
 import dk.sdu.mmmi.cbse.common.services.IGamePluginService;
 import org.openide.util.lookup.ServiceProvider;
 
-import java.util.ArrayList;
-
 
 @ServiceProvider(service = IGamePluginService.class)
 public class AsteroidPlugin implements IGamePluginService {
@@ -36,14 +34,15 @@ public class AsteroidPlugin implements IGamePluginService {
 
     private Entity createAsteroid(GameData gameData) {
         Entity asteroid = new Asteroid();
+
         float radians = (float) Math.random() * 2 * 3.1415f;
         float speed = (float) Math.random() * 10f + 20f;
 
+        // Size of asteroid
         asteroid.setRadius(20);
         asteroid.add(new MovingPart(0, speed, speed, 0));
         asteroid.add(new PositionPart((float) (Math.random() * gameData.getDisplayWidth()), (float) Math.random() * gameData.getDisplayHeight(), radians));
         asteroid.add(new LifePart(3));
-
 
         return asteroid;
     }

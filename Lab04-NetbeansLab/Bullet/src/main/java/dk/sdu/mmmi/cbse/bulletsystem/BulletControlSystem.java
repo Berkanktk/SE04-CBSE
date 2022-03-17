@@ -24,14 +24,15 @@ public class BulletControlSystem implements IEntityProcessingService, BulletSPI 
     public void process(GameData gameData, World world) {
 
         for (Entity bullet : world.getEntities(Bullet.class)) {
-
             PositionPart positionPart = bullet.getPart(PositionPart.class);
             MovingPart movingPart = bullet.getPart(MovingPart.class);
             TimerPart timerPart = bullet.getPart(TimerPart.class);
             movingPart.setUp(true);
+
             if (timerPart.getExpiration() < 0) {
                 world.removeEntity(bullet);
             }
+
             timerPart.process(gameData, bullet);
             movingPart.process(gameData, bullet);
             positionPart.process(gameData, bullet);
@@ -43,7 +44,6 @@ public class BulletControlSystem implements IEntityProcessingService, BulletSPI 
     @Override
     public Entity createBullet(Entity shooter, GameData gameData) {
         PositionPart shooterPos = shooter.getPart(PositionPart.class);
-        MovingPart shooterMovingPart = shooter.getPart(MovingPart.class);
 
         float x = shooterPos.getX();
         float y = shooterPos.getY();
@@ -69,13 +69,13 @@ public class BulletControlSystem implements IEntityProcessingService, BulletSPI 
     }
 
     private void setShape(Entity entity) {
+        PositionPart positionPart = entity.getPart(PositionPart.class);
         float[] shapex = entity.getShapeX();
         float[] shapey = entity.getShapeY();
-        PositionPart positionPart = entity.getPart(PositionPart.class);
+
         float x = positionPart.getX();
         float y = positionPart.getY();
         float radians = positionPart.getRadians();
-
 
         shapex[0] = x;
         shapey[0] = y;
@@ -95,7 +95,6 @@ public class BulletControlSystem implements IEntityProcessingService, BulletSPI 
 
         shapex[3] = (float) (x + Math.cos(radians + 4 * 3.1415f / 5) * 3);
         shapey[3] = (float) (y + Math.sin(radians + 4 * 3.1415f / 5) * 3);
-
          */
 
         entity.setShapeX(shapex);

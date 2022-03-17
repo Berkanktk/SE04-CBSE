@@ -18,8 +18,6 @@ import org.openide.util.lookup.ServiceProvider;
 @ServiceProvider(service = IEntityProcessingService.class)
 public class EnemyControlSystem implements IEntityProcessingService {
 
-    private Entity enemy;
-
     public void process(GameData gameData, World world) {
 
         for (Entity enemy : world.getEntities(Enemy.class)) {
@@ -34,18 +32,18 @@ public class EnemyControlSystem implements IEntityProcessingService {
                 world.addEntity(bullet);
             }
 
-            // Movement
-            float rng = rand.nextFloat();
+            // Enemy movements
+            float randomMovement = rand.nextFloat();
 
-            if (rng > 0.1f && rng < 0.9f) {
+            if (randomMovement > 0.1f && randomMovement < 0.9f) {
                 movingPart.setUp(true);
             }
 
-            if (rng < 0.2f) {
+            if (randomMovement < 0.2f) {
                 movingPart.setLeft(true);
             }
 
-            if (rng > 0.8f) {
+            if (randomMovement > 0.8f) {
                 movingPart.setRight(true);
             }
 

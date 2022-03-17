@@ -46,7 +46,9 @@ public class PlayerControlSystem implements IEntityProcessingService {
     private void updateShape(Entity entity) {
         float[] shapex = new float[4];
         float[] shapey = new float[4];
+
         PositionPart positionPart = entity.getPart(PositionPart.class);
+
         float x = positionPart.getX();
         float y = positionPart.getY();
         float radians = positionPart.getRadians();

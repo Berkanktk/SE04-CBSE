@@ -16,9 +16,6 @@ public class PlayerPlugin implements IGamePluginService {
 
     private Entity player;
 
-    public PlayerPlugin() {
-    }
-
     @Override
     public void start(GameData gameData, World world) {
 
@@ -28,16 +25,19 @@ public class PlayerPlugin implements IGamePluginService {
     }
 
     private Entity createPlayerShip(GameData gameData) {
+        Entity playerShip = new Player();
 
+        // Movement specifications
         float deacceleration = 10;
         float acceleration = 200;
         float maxSpeed = 300;
         float rotationSpeed = 5;
-        float x = gameData.getDisplayWidth() / 2;
-        float y = gameData.getDisplayHeight() / 2;
+
+        float x = (float) gameData.getDisplayWidth() / 2;
+        float y = (float) gameData.getDisplayHeight() / 2;
         float radians = 3.1415f / 2;
 
-        Entity playerShip = new Player();
+        // Player size
         playerShip.setRadius(8);
         playerShip.add(new MovingPart(deacceleration, acceleration, maxSpeed, rotationSpeed));
         playerShip.add(new PositionPart(x, y, radians));
