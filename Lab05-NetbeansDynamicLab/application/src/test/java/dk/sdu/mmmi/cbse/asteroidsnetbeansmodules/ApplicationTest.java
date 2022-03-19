@@ -1,21 +1,9 @@
 package dk.sdu.mmmi.cbse.asteroidsnetbeansmodules;
 
-import dk.sdu.mmmi.cbse.common.services.IEntityProcessingService;
-import dk.sdu.mmmi.cbse.common.services.IGamePluginService;
-import java.io.IOException;
-import static java.nio.file.Files.copy;
-import static java.nio.file.Paths.get;
-import static java.nio.file.StandardCopyOption.REPLACE_EXISTING;
-import java.util.List;
-import java.util.concurrent.CopyOnWriteArrayList;
-import java.util.logging.Level;
-import junit.framework.Test;
-import org.netbeans.junit.NbModuleSuite;
-import org.netbeans.junit.NbTestCase;
-import org.openide.util.Lookup;
 
-public class ApplicationTest extends NbTestCase {
+public class ApplicationTest {
 
+    /*
     // TODO: Put your own paths here...
     private static final String ADD_ENEMY_UPDATES_FILE = "/Users/berkankutuk/Documents/SE04/SE04-CBS01-AsteroidsGame/AsteroidsNetbeansModules/application/src/test/resources/enemy/updates.xml";
     private static final String REM_ENEMY_UPDATES_FILE = "/Users/berkankutuk/Documents/SE04/SE04-CBS01-AsteroidsGame/AsteroidsNetbeansModules/application/src/test/resources/remenemy/updates.xml";
@@ -79,5 +67,6 @@ public class ApplicationTest extends NbTestCase {
         plugins.clear();
         plugins.addAll(Lookup.getDefault().lookupAll(IGamePluginService.class));
     }
+*/
 
 }
