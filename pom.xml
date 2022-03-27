@@ -12,6 +12,7 @@
         <module>Lab03-JavaLab</module>
         <module>Lab04-NetbeansLab</module>
         <module>Lab05-NetbeansDynamicLab</module>
+        <module>Lab06-OSGiLab</module>
     </modules>
 
     <properties>
