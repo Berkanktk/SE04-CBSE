@@ -7,13 +7,6 @@
     <version>1.0-SNAPSHOT</version>
   </parent>
 
-  <properties>
-    <bundle.symbolicName>dk.sdu.mmmi.libgdx-wrap</bundle.symbolicName>
-    <wrapped.groupId>dk.sdu.mmmi.libgdx-wrap</wrapped.groupId>
-    <wrapped.artifactId>libgdx-wrap</wrapped.artifactId>
-    <wrapped.version>1.0-SNAPSHOT</wrapped.version>
-  </properties>
-
   <modelVersion>4.0.0</modelVersion>
   <groupId>dk.sdu.mmmi.Lab06-OSGiLab</groupId>
   <artifactId>dk.sdu.mmmi.libgdx-wrap</artifactId>
@@ -28,9 +21,7 @@
       <resource>
         <directory>src/main/resources</directory>
       </resource>
-      <!--
-       | example additional resource entries, useful when building Eclipse RCP applications
-      -->
+
     </resources>
     <plugins>
       <plugin>
