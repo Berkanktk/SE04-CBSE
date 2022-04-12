@@ -47,6 +47,14 @@
   <modules>
     <module>poms</module>
     <module>provision</module>
+
+    <module>OSGiAsteroids</module>
+    <module>OSGiBullet</module>
+    <module>OSGiCollision</module>
+    <module>OSGiCommon</module>
+    <module>OSGiCore</module>
+    <module>OSGiEnemy</module>
+    <module>OSGiPlayer</module>
   </modules>
 
   <build>
