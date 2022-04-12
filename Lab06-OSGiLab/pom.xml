@@ -55,6 +55,8 @@
     <module>OSGiCore</module>
     <module>OSGiEnemy</module>
     <module>OSGiPlayer</module>
+
+    <module>LibGDX</module>
   </modules>
 
   <build>
