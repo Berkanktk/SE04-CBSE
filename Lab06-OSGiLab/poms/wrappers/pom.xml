@@ -36,7 +36,9 @@
         <artifactId>maven-bundle-plugin</artifactId>
         <configuration>
           <instructions>
+            <!--suppress UnresolvedMavenProperty -->
             <Bundle-SymbolicName>${bundle.symbolicName}</Bundle-SymbolicName>
+            <!--suppress UnresolvedMavenProperty -->
             <Bundle-Version>${wrapped.version}</Bundle-Version>
             <!--
              | export wrapped contents: don't use Export-Package:* as this bundles everything on the classpath

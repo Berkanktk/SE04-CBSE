@@ -41,12 +41,15 @@
         <artifactId>maven-bundle-plugin</artifactId>
         <configuration>
           <instructions>
+            <!--suppress UnresolvedMavenProperty -->
             <Bundle-SymbolicName>${bundle.symbolicName}</Bundle-SymbolicName>
             <Bundle-Version>${pom.version}</Bundle-Version>
             <!--
              | assume public classes are in the top package, and private classes are under ".internal"
             -->
+            <!--suppress UnresolvedMavenProperty -->
             <Export-Package>!${bundle.namespace}.internal.*,${bundle.namespace}.*;version="${pom.version}"</Export-Package>
+            <!--suppress UnresolvedMavenProperty -->
             <Private-Package>${bundle.namespace}.internal.*</Private-Package>
             <!--
              | each module can override these defaults in their osgi.bnd file
