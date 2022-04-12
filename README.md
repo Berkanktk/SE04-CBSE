@@ -12,6 +12,8 @@ IB = Ikke-begyndt
 | 04  | 23/2 | NetbeansLab        | AsteroidsNetbeansModules | F           |
 | 05  | 2/3  | NetbeansDynamicLab | AsteroidsNetbeansModules | F           |
 | 06  | 9/3  | OSGILab            | OSGiAsteroids            | IB          |
+| 07  | 30/3 | SpringLab          |             | IB          |
+
 
 ## Hvordan man kører labs
 Åben hvert lab individuelt
