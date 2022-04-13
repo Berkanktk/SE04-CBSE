@@ -1,6 +1,5 @@
 package dk.sdu.mmmi.cbse.osgiasteroids;
 
-
 import dk.sdu.mmmi.cbse.common.services.IEntityProcessingService;
 import dk.sdu.mmmi.cbse.common.services.IGamePluginService;
 import org.osgi.framework.BundleActivator;

@@ -10,9 +10,9 @@ public class Activator implements BundleActivator {
     @Override
     public void start(BundleContext context) throws Exception {
 
-        BulletControlSystem ls = new BulletControlSystem();
-        context.registerService(IEntityProcessingService.class, ls, null);
-        context.registerService(BulletSPI.class, ls, null);
+        BulletProcessor bp = new BulletProcessor();
+        context.registerService(IEntityProcessingService.class, bp, null);
+        context.registerService(BulletSPI.class, bp, null);
     }
 
     @Override

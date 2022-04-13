@@ -14,7 +14,7 @@ import dk.sdu.mmmi.cbse.common.services.IEntityProcessingService;
 import static java.lang.Math.cos;
 import static java.lang.Math.sin;
 
-public class BulletControlSystem implements IEntityProcessingService, BulletSPI {
+public class BulletProcessor implements IEntityProcessingService, BulletSPI {
 
     @Override
     public void process(GameData gameData, World world) {

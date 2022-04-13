@@ -15,6 +15,7 @@ public class EnemyPlugin implements IGamePluginService {
     private String enemyID;
 
     public EnemyPlugin() {
+
     }
 
     @Override
@@ -44,7 +45,6 @@ public class EnemyPlugin implements IGamePluginService {
         enemyShip.add(new MovingPart(deacceleration, acceleration, maxSpeed, rotationSpeed));
         enemyShip.add(new PositionPart(x, y, radians));
         enemyShip.add(new LifePart(3));
-
 
         return enemyShip;
     }
