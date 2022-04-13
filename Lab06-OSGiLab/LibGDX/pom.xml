@@ -2,7 +2,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/maven-v4_0_0.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 
   <parent>
-    <relativePath>../poms/wrappers/libgdx-wrapper</relativePath>
+    <relativePath>../poms/libgdx-wrapper/</relativePath>
     <groupId>dk.sdu.mmmi.Lab06-OSGiLab.build</groupId>
     <artifactId>compiled-bundle-settings</artifactId>
     <version>1.0-SNAPSHOT</version>
@@ -17,6 +17,7 @@
   <modelVersion>4.0.0</modelVersion>
   <artifactId>LibGDX</artifactId>
   <version>1.0-SNAPSHOT</version>
+  <packaging>bundle</packaging>
 
   <name>LibGDX</name>
 
