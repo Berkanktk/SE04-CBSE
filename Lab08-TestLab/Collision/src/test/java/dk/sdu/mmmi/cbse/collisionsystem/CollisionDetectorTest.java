@@ -6,18 +6,18 @@
 package dk.sdu.mmmi.cbse.collisionsystem;
 
 import dk.sdu.mmmi.cbse.common.data.Entity;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.AfterEach;
-import static org.junit.jupiter.api.Assertions.*;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import dk.sdu.mmmi.cbse.common.data.World;
+import dk.sdu.mmmi.cbse.common.data.entityparts.LifePart;
+import dk.sdu.mmmi.cbse.common.data.entityparts.PositionPart;
+import org.junit.jupiter.api.*;
 
 /**
  *
- * @author jcs
+ * @author Berkan Kütük
  */
+
 public class CollisionDetectorTest {
+    private World world = new World();
 
     public CollisionDetectorTest() {
     }
@@ -32,35 +32,98 @@ public class CollisionDetectorTest {
 
     @BeforeEach
     public void setUp() {
+        System.out.println("*******************************");
+        System.out.println("| Testing collision detection |");
+        System.out.println("*******************************");
     }
 
     @AfterEach
     public void tearDown() {
+        System.out.println("\n\t\tTest Finished!\n");
+
     }
 
     /**
      * Test of process method, of class CollisionDetector.
      */
-    @Test
+    // @Test
     public void testProcess() {
 
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
-     * Test of Collides method, of class CollisionDetector.
+     * Test of Collision method, of class CollisionDetector.
      */
-    public void testCollides() {
-        System.out.println("Collides");
-        Entity entity = null;
-        Entity entity2 = null;
-        CollisionDetector instance = new CollisionDetector();
-        Boolean expResult = null;
-        Boolean result = instance.checkCollision(entity, entity2);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+
+    @Test
+    public void testCollision() {
+        // Creating the first entity
+        Entity entity = new Entity();
+        entity.setRadius(10);
+        entity.add(new PositionPart(0, 0,0));
+        entity.add(new LifePart(3));
+
+        // Creating the second entity
+        Entity entity2 = new Entity();
+        entity2.setRadius(10);
+        entity2.add(new PositionPart(5, 5,0));
+        entity2.add(new LifePart(3));
+
+        // Adding them to the world
+        world.addEntity(entity);
+        world.addEntity(entity2);
+
+        new CollisionDetector().process(null, world);
+
+        // Getting their x and y coordinates
+        PositionPart entMov = entity.getPart(PositionPart.class);
+        PositionPart entMov2 = entity2.getPart(PositionPart.class);
+
+        System.out.println("Entity 1: " + "X: " + entMov.getX() + ", Y: " + entMov.getY());
+        System.out.println("Entity 2: " + "X: " + entMov2.getX() + ", Y: " + entMov2.getY());
+
+        // Getting their life parts to detect collision
+        LifePart lifePart = entity.getPart(LifePart.class);
+        LifePart lifePart2 = entity2.getPart(LifePart.class);
+
+        // Testing if they get hit
+        Assertions.assertTrue(lifePart.isHit());
+        Assertions.assertTrue(lifePart2.isHit());
     }
 
+    @Test
+    public void testNoCollision() {
+        // Creating the first entity
+        Entity entity = new Entity();
+        entity.setRadius(10);
+        entity.add(new PositionPart(0, 0,0));
+        entity.add(new LifePart(3));
+
+        // Creating the second entity
+        Entity entity2 = new Entity();
+        entity2.setRadius(10);
+        entity2.add(new PositionPart(20, 20,0));
+        entity2.add(new LifePart(3));
+
+        // Adding them to the world
+        world.addEntity(entity);
+        world.addEntity(entity2);
+
+        new CollisionDetector().process(null, world);
+
+        // Getting their x and y coordinates
+        PositionPart entMov = entity.getPart(PositionPart.class);
+        PositionPart entMov2 = entity2.getPart(PositionPart.class);
+
+        System.out.println("Entity 1: " + "X: " + entMov.getX() + ", Y: " + entMov.getY());
+        System.out.println("Entity 2: " + "X: " + entMov2.getX() + ", Y: " + entMov2.getY());
+
+        // Getting their life parts to detect collision
+        LifePart lifePart = entity.getPart(LifePart.class);
+        LifePart lifePart2 = entity2.getPart(LifePart.class);
+
+        // Testing if they get hit
+        Assertions.assertFalse(lifePart.isHit());
+        Assertions.assertFalse(lifePart2.isHit());
+    }
 }
