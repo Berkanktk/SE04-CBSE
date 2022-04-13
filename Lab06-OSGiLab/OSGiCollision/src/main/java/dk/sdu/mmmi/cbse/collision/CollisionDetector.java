@@ -49,10 +49,7 @@ public class CollisionDetector implements IPostEntityProcessingService {
         float distance = (float) Math.sqrt(dx * dx + dy * dy);
 
         // Calculates collision between two entities
-        if (distance < (entity.getRadius() + entity2.getRadius())) {
-            return true;
-        }
-        return false;
+        return distance < (entity.getRadius() + entity2.getRadius());
     }
 
 }

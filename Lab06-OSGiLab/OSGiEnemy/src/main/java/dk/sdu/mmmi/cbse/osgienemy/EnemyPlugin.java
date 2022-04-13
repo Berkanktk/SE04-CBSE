@@ -9,7 +9,6 @@ import dk.sdu.mmmi.cbse.common.data.entityparts.PositionPart;
 import dk.sdu.mmmi.cbse.common.enemy.Enemy;
 import dk.sdu.mmmi.cbse.common.services.IGamePluginService;
 
-
 import java.util.Random;
 
 public class EnemyPlugin implements IGamePluginService {
@@ -23,7 +22,7 @@ public class EnemyPlugin implements IGamePluginService {
         // Add entities to the world
         Entity enemy = createEnemyShip(gameData);
         enemyID = world.addEntity(enemy);
-        
+
     }
 
     private Entity createEnemyShip(GameData gameData) {
