@@ -1,42 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
-  <parent>
-    <relativePath>../poms/compiled/</relativePath>
-    <groupId>dk.sdu.mmmi.Lab06-OSGiLab.build</groupId>
-    <artifactId>compiled-bundle-settings</artifactId>
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <relativePath>../poms/compiled</relativePath>
+        <groupId>dk.sdu.mmmi.build</groupId>
+        <artifactId>compiled-bundle-settings</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+
+    <properties>
+        <bundle.symbolicName>dk.sdu.mmmi.common</bundle.symbolicName>
+        <bundle.namespace>dk.sdu.mmmi</bundle.namespace>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <artifactId>OSGiPlayer</artifactId>
     <version>1.0-SNAPSHOT</version>
-  </parent>
+    <packaging>bundle</packaging>
+    <name>OSGiPlayer</name>
 
-  <properties>
-    <bundle.symbolicName>dk.sdu.mmmi.player</bundle.symbolicName>
-    <bundle.namespace>dk.sdu.mmmi.player</bundle.namespace>
-  </properties>
+    <dependencies>
+        <dependency>
+            <groupId>org.osgi</groupId>
+            <artifactId>org.osgi.core</artifactId>
+            <version>4.3.0</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>dk.sdu.mmmi.build</groupId>
+            <artifactId>OSGiCommon</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>dk.sdu.mmmi.build</groupId>
+            <artifactId>OSGiCommonBullet</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <scope>compile</scope>
+        </dependency>
+    </dependencies>
 
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>dk.sdu.mmmi.Lab06-OSGiLab</groupId>
-  <artifactId>dk.sdu.mmmi.player</artifactId>
-  <version>1.0-SNAPSHOT</version>
-
-  <name>${bundle.symbolicName}</name>
-
-  <packaging>bundle</packaging>
-
-  <dependencies>
-    <!--
-     | uncomment to add all imported (non-local) bundles to your compilation classpath
-    <dependency>
-      <type>pom</type>
-      <groupId>${parent.groupId}</groupId>
-      <artifactId>provision</artifactId>
-      <optional>true</optional>
-    </dependency>
-    -->
-    <dependency>
-      <groupId>org.osgi</groupId>
-      <artifactId>org.osgi.core</artifactId>
-      <scope>compile</scope>
-    </dependency>
-  </dependencies>
-
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.felix</groupId>
+                <artifactId>maven-bundle-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
 </project>
