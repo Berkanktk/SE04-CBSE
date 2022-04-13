@@ -33,6 +33,11 @@ public class PlayerProcessor implements IEntityProcessingService {
                 world.addEntity(bullet);
             }
 
+            if (lifePart.isHit()) {
+                System.out.println("Player Hit!");
+                System.out.println("Player life: " + lifePart.getLife());
+            }
+
             movingPart.process(gameData, player);
             positionPart.process(gameData, player);
             lifePart.process(gameData, player);

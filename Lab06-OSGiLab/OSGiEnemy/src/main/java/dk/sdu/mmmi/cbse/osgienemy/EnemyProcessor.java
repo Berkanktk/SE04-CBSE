@@ -33,6 +33,11 @@ public class EnemyProcessor implements IEntityProcessingService {
                 world.addEntity(bullet);
             }
 
+            if (lifePart.isHit()) {
+                System.out.println("Enemy Hit!");
+                System.out.println("Enemy life: " + lifePart.getLife());
+            }
+
             movingPart.process(gameData, entity);
             positionPart.process(gameData, entity);
             lifePart.process(gameData, entity);
