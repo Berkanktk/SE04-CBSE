@@ -1,102 +1,99 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+      
   <!--
-   | put company details here
-  <organization>
-    <name>...</name>
-    <url>http://...</url>
-  </organization>
-  -->
-
-  <!--
-   | put license details here
-  <licenses>
-    <license>
+     | put company details here
+    <organization>
       <name>...</name>
       <url>http://...</url>
-      <comments>
-      </comments>
-    </license>
-  </licenses>
-  -->
-
+    </organization>
+    -->
+      
+  <!--
+     | put license details here
+    <licenses>
+      <license>
+        <name>...</name>
+        <url>http://...</url>
+        <comments>
+        </comments>
+      </license>
+    </licenses>
+    -->
+      
   <modelVersion>4.0.0</modelVersion>
   <groupId>dk.sdu.mmmi</groupId>
   <artifactId>Lab06-OSGiLab</artifactId>
   <version>1.0-SNAPSHOT</version>
+    <dependencies>
 
-  <name>Lab06-OSGiLab</name>
+    </dependencies>
 
+    <name>Lab06-OSGiLab</name>
+      
   <!--
-   | describe your project here
-  -->
-
-  <description>Generated using Pax-Construct</description>
-
-  <properties>
-    <!--
-     | some example OSGi runtime properties
+     | describe your project here
     -->
-    <org.osgi.service.http.port>8080</org.osgi.service.http.port>
-    <org.osgi.service.http.port.secure>8443</org.osgi.service.http.port.secure>
-    <maven.compiler.source>1.8</maven.compiler.source>
-    <maven.compiler.target>1.8</maven.compiler.target>
+      
+  <description>Generated using Pax-Construct</description>
+      
+  <properties>
+      <!--
+         | some example OSGi runtime properties
+        -->
+      <netbeans.version>RELEASE112</netbeans.version>
+      <org.osgi.service.http.port>8080</org.osgi.service.http.port>
+      <org.osgi.service.http.port.secure>8443</org.osgi.service.http.port.secure>
+      <maven.compiler.source>1.8</maven.compiler.source>
+      <maven.compiler.target>1.8</maven.compiler.target>
+        
   </properties>
-
+      
   <packaging>pom</packaging>
-
+      
   <modules>
-    <module>poms</module>
-    <module>provision</module>
-
-    <module>OSGiAsteroids</module>
-    <module>OSGiBullet</module>
-    <module>OSGiCollision</module>
-    <module>OSGiCommon</module>
-    <module>OSGiCore</module>
-    <module>OSGiEnemy</module>
-    <module>OSGiPlayer</module>
-
-    <module>LibGDX</module>
+      <module>poms</module>
+      <module>provision</module>
+      <module>OSGiCore</module>
+      <module>OSGiCommon</module>
+      <module>OSGiCommonAsteroids</module>
+      <module>OSGiCommonBullet</module>
+      <module>OSGiCommonEnemy</module>
+      <module>OSGiAsteroids</module>
+      <module>OSGiBullet</module>
+      <module>OSGiEnemy</module>
+      <module>OSGiLibGDX</module>
+      <module>OSGiPlayer</module>
+      <module>OSGiCollision</module>
   </modules>
-
+      
   <build>
-    <plugins>
-      <plugin>
-        <groupId>org.ops4j</groupId>
-        <artifactId>maven-pax-plugin</artifactId>
-        <version>1.6.0</version>
-        <configuration>
-          <!--
-           | some example Pax-Runner settings
-          -->
-          <provision>
-            <param>--platform=felix</param>
-          </provision>
+      <plugins>
+          <plugin>
+              <groupId>org.ops4j</groupId>
+              <artifactId>maven-pax-plugin</artifactId>
+              <version>1.6.0</version>
+              <configuration>
+                  <!--
+                     | some example Pax-Runner settings
+                    -->
+            <provision>
+                <param>--platform=felix</param>
+            </provision>
         </configuration>
         <executions>
-          <!--
-           | uncomment to auto-generate IDE files
-          <execution>
-            <id>ide-support</id>
-            <goals>
-              <goal>eclipse</goal>
-            </goals>
-          </execution>
-          -->
+            <!--
+                     | uncomment to auto-generate IDE files
+                    <execution>
+                      <id>ide-support</id>
+                      <goals>
+                        <goal>eclipse</goal>
+                      </goals>
+                    </execution>
+                    -->
         </executions>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.5.1</version>
-        <configuration>
-          <source>1.8</source>
-          <target>1.8</target>
-        </configuration>
       </plugin>
     </plugins>
   </build>
-
+  
 </project>
