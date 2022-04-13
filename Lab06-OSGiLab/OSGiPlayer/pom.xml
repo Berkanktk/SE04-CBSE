@@ -15,10 +15,10 @@
 
   <modelVersion>4.0.0</modelVersion>
   <groupId>dk.sdu.mmmi.Lab06-OSGiLab</groupId>
-  <artifactId>dk.sdu.mmmi.player</artifactId>
+  <artifactId>OSGiPlayer</artifactId>
   <version>1.0-SNAPSHOT</version>
 
-  <name>${bundle.symbolicName}</name>
+  <name>OSGiPlayer</name>
 
   <packaging>bundle</packaging>
 
@@ -35,7 +35,7 @@
     <dependency>
       <groupId>org.osgi</groupId>
       <artifactId>org.osgi.core</artifactId>
-      <scope>compile</scope>
+      <scope>provided</scope>
     </dependency>
   </dependencies>
 
