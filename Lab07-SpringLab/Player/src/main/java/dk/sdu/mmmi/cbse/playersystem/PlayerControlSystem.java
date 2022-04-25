@@ -12,12 +12,9 @@ import dk.sdu.mmmi.cbse.common.data.entityparts.MovingPart;
 import dk.sdu.mmmi.cbse.common.data.entityparts.PositionPart;
 import dk.sdu.mmmi.cbse.common.services.IEntityProcessingService;
 import dk.sdu.mmmi.cbse.bullet.PlayerBullet;
+import org.springframework.stereotype.Service;
 
-
-/**
- *
- * @author jcs
- */
+@Service
 public class PlayerControlSystem implements IEntityProcessingService {
 
     @Override
@@ -44,7 +41,6 @@ public class PlayerControlSystem implements IEntityProcessingService {
             if (lifePart.getLife() <= 0) {
                 world.removeEntity(player);
             }
-
 
             movingPart.process(gameData, player);
             positionPart.process(gameData, player);

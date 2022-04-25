@@ -6,6 +6,8 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import dk.sdu.mmmi.cbse.asteroid.Asteroid;
+import dk.sdu.mmmi.cbse.asteroid.AsteroidControlSystem;
+import dk.sdu.mmmi.cbse.asteroid.AsteroidPlugin;
 import dk.sdu.mmmi.cbse.bullet.*;
 import dk.sdu.mmmi.cbse.common.data.Entity;
 import dk.sdu.mmmi.cbse.common.data.GameData;
@@ -16,24 +18,38 @@ import dk.sdu.mmmi.cbse.common.services.IGamePluginService;
 import dk.sdu.mmmi.cbse.common.services.IPostEntityProcessingService;
 import dk.sdu.mmmi.cbse.common.util.SPILocator;
 import dk.sdu.mmmi.cbse.enemysystem.Enemy;
+import dk.sdu.mmmi.cbse.enemysystem.EnemyControlSystem;
+import dk.sdu.mmmi.cbse.enemysystem.EnemyPlugin;
 import dk.sdu.mmmi.cbse.managers.GameInputProcessor;
 import dk.sdu.mmmi.cbse.playersystem.Player;
+import dk.sdu.mmmi.cbse.playersystem.PlayerControlSystem;
+import dk.sdu.mmmi.cbse.playersystem.PlayerPlugin;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
+@Service
 public class Game implements ApplicationListener {
 
     private static OrthographicCamera cam;
     private ShapeRenderer sr;
     private final GameData gameData = new GameData();
-    // private final List<IEntityProcessingService> entityProcessors = new ArrayList<>();
-    // private final List<IPostEntityProcessingService> postEntityProcessors = new ArrayList<>();
-    // private final List<IGamePluginService> entityPlugins = new ArrayList<>();
     private final World world = new World();
+
+    @Autowired
+    private final List<IEntityProcessingService> entityProcessors = new ArrayList<>();
+    @Autowired
+    private final List<IPostEntityProcessingService> postEntityProcessors = new ArrayList<>();
+    @Autowired
+    private final List<IGamePluginService> entityPlugins = new ArrayList<>();
 
     @Override
     public void create() {
-
         // Game window
         gameData.setDisplayWidth(Gdx.graphics.getWidth());
         gameData.setDisplayHeight(Gdx.graphics.getHeight());
@@ -47,10 +63,7 @@ public class Game implements ApplicationListener {
         Gdx.input.setInputProcessor(new GameInputProcessor(gameData)
         );
 
-        // SPILocator.locateAll(IGamePluginService.class);
-        List<IGamePluginService> igp = SPILocator.locateAll(IGamePluginService.class);
-
-        for (IGamePluginService ig: igp) {
+        for (IGamePluginService ig: entityPlugins) {
             ig.start(gameData, world);
         }
     }
@@ -71,23 +84,19 @@ public class Game implements ApplicationListener {
     }
 
     private void update() {
-        List<IEntityProcessingService> entityProcessors = SPILocator.locateAll(IEntityProcessingService.class);
-        List<IPostEntityProcessingService> postEntityProcessors = SPILocator.locateAll(IPostEntityProcessingService.class);
 
-        // Entity updates
-        for (IEntityProcessingService entityProcessorService : entityProcessors) {
-            entityProcessorService.process(gameData, world);
+        for (IEntityProcessingService entityProcessingService: entityProcessors){
+            entityProcessingService.process(gameData, world);
         }
 
-        // Post updates
-            for (IPostEntityProcessingService postEntityProcessorService : postEntityProcessors) {
-            postEntityProcessorService.process(gameData, world);
+        for (IPostEntityProcessingService postEntityProcessingService: postEntityProcessors){
+            postEntityProcessingService.process(gameData, world);
         }
+
     }
 
     private void draw() {
         for (Entity entity : world.getEntities()) {
-
 
             if (entity instanceof Enemy) {
                 sr.setColor(255, 0, 0, 1);

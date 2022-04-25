@@ -8,8 +8,11 @@ import dk.sdu.mmmi.cbse.common.data.entityparts.LifePart;
 import dk.sdu.mmmi.cbse.common.data.entityparts.MovingPart;
 import dk.sdu.mmmi.cbse.common.data.entityparts.PositionPart;
 import dk.sdu.mmmi.cbse.common.services.IEntityProcessingService;
+import org.springframework.stereotype.Service;
+
 import java.util.Random;
 
+@Service
 public class EnemyControlSystem implements IEntityProcessingService {
 
     private Random random = new Random();
@@ -34,7 +37,7 @@ public class EnemyControlSystem implements IEntityProcessingService {
             positionPart.process(gameData, enemy);
 
             if((int)(Math.random() * 40) == 0){
-                System.out.println("Enemy is shooting!");
+                //System.out.println("Enemy is shooting!");
                 world.addEntity(shootProjectile(positionPart));
             }
 

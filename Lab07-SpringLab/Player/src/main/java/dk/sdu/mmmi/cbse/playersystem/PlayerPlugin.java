@@ -7,7 +7,9 @@ import dk.sdu.mmmi.cbse.common.data.entityparts.LifePart;
 import dk.sdu.mmmi.cbse.common.data.entityparts.MovingPart;
 import dk.sdu.mmmi.cbse.common.data.entityparts.PositionPart;
 import dk.sdu.mmmi.cbse.common.services.IGamePluginService;
+import org.springframework.stereotype.Service;
 
+@Service
 public class PlayerPlugin implements IGamePluginService {
 
     private Entity player;
