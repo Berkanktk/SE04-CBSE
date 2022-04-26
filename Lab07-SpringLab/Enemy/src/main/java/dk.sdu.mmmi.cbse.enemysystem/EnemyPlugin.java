@@ -17,7 +17,8 @@ public class EnemyPlugin implements IGamePluginService {
     private Entity enemy;
     private Random random = new Random();
 
-    public EnemyPlugin() {}
+    public EnemyPlugin() {
+    }
 
     @Override
     public void start(GameData gameData, World world) {
@@ -47,7 +48,7 @@ public class EnemyPlugin implements IGamePluginService {
 
         Entity enemyShip = new Enemy();
         enemyShip.setRadius(4);
-        enemyShip.add(new LifePart(3,0));
+        enemyShip.add(new LifePart(3, 0));
         enemyShip.add(new MovingPart(deacceleration, acceleration, maxSpeed, rotationSpeed));
         enemyShip.add(new PositionPart(x, y, radians));
 

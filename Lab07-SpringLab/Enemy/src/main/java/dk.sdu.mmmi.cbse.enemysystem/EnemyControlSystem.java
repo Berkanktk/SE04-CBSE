@@ -25,8 +25,8 @@ public class EnemyControlSystem implements IEntityProcessingService {
             MovingPart movingPart = enemy.getPart(MovingPart.class);
             LifePart lifePart = enemy.getPart(LifePart.class);
 
-            if (random.nextDouble() > 0.8){
-                direction_right = (direction_right == false) ? true: false;
+            if (random.nextDouble() > 0.8) {
+                direction_right = (direction_right == false) ? true : false;
             }
 
             movingPart.setLeft(!direction_right);
@@ -36,22 +36,23 @@ public class EnemyControlSystem implements IEntityProcessingService {
             movingPart.process(gameData, enemy);
             positionPart.process(gameData, enemy);
 
-            if((int)(Math.random() * 40) == 0){
+            if ((int) (Math.random() * 40) == 0) {
                 //System.out.println("Enemy is shooting!");
                 world.addEntity(shootProjectile(positionPart));
             }
 
-            if (lifePart.isIsHit()){
+            if (lifePart.isIsHit()) {
                 lifePart.setLife(lifePart.getLife() - 1);
             }
 
-            if (lifePart.getLife() <=0){
+            if (lifePart.getLife() <= 0) {
                 world.removeEntity(enemy);
             }
 
             updateShape(enemy);
         }
     }
+
     private Entity shootProjectile(PositionPart enemyPos) {
         float deacceleration = 0;
         float acceleration = 200;

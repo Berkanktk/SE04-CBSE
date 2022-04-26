@@ -7,21 +7,21 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 
 public class Main {
 
-	public static void main(String[] args) {
-		String packagesToScan = "dk.sdu.mmmi.cbse";
+    public static void main(String[] args) {
+        String packagesToScan = "dk.sdu.mmmi.cbse";
 
-		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(packagesToScan);
-		ApplicationListener game = context.getBean(ApplicationListener.class);
+        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(packagesToScan);
+        ApplicationListener game = context.getBean(ApplicationListener.class);
 
-		LwjglApplicationConfiguration cfg = new LwjglApplicationConfiguration();
-		cfg.title = "Asteroids";
-		cfg.width = 500;
-		cfg.height = 400;
-		cfg.useGL30 = false;
-		cfg.resizable = true;
-		
-		new LwjglApplication(game, cfg);
-		
-	}
-	
+        LwjglApplicationConfiguration cfg = new LwjglApplicationConfiguration();
+        cfg.title = "Asteroids";
+        cfg.width = 500;
+        cfg.height = 400;
+        cfg.useGL30 = false;
+        cfg.resizable = true;
+
+        new LwjglApplication(game, cfg);
+
+    }
+
 }

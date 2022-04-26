@@ -6,13 +6,13 @@ import org.springframework.stereotype.Service;
 @Service
 public class Bullet extends Entity {
     private int maxDuration = 150;
-    private int duration =  0;
+    private int duration = 0;
 
-    public boolean isExpired(){
+    public boolean isExpired() {
         return duration == maxDuration;
     }
 
-    public void increaseDuration(){
+    public void increaseDuration() {
         duration++;
     }
 }

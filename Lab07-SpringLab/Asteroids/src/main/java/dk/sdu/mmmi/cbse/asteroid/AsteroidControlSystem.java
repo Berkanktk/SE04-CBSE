@@ -7,8 +7,6 @@ import dk.sdu.mmmi.cbse.common.data.entityparts.LifePart;
 import dk.sdu.mmmi.cbse.common.data.entityparts.MovingPart;
 import dk.sdu.mmmi.cbse.common.data.entityparts.PositionPart;
 import dk.sdu.mmmi.cbse.common.services.IEntityProcessingService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -17,7 +15,7 @@ public class AsteroidControlSystem implements IEntityProcessingService {
     @Override
     public void process(GameData gameData, World world) {
 
-        for(Entity asteroid : world.getEntities(Asteroid.class)) {
+        for (Entity asteroid : world.getEntities(Asteroid.class)) {
 
             PositionPart positionPart = asteroid.getPart(PositionPart.class);
             MovingPart movingPart = asteroid.getPart(MovingPart.class);
@@ -28,7 +26,7 @@ public class AsteroidControlSystem implements IEntityProcessingService {
             movingPart.process(gameData, asteroid);
             positionPart.process(gameData, asteroid);
 
-            if (lifePart.isIsHit()){
+            if (lifePart.isIsHit()) {
                 splitAsteroid(asteroid, world);
             }
 
@@ -46,13 +44,13 @@ public class AsteroidControlSystem implements IEntityProcessingService {
         float speed = 5;
         int life = lifePart.getLife() - 1;
 
-        if (life == 1){
+        if (life == 1) {
             radius = 6;
             speed = (float) Math.random() * 30 + 70;
-        } else if (life == 2){
+        } else if (life == 2) {
             radius = 10;
             speed = (float) Math.random() * 10 + 50;
-        } else if (life <= 0){
+        } else if (life <= 0) {
             world.removeEntity(entity);
         }
 

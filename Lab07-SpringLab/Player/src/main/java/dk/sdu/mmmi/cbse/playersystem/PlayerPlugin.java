@@ -19,7 +19,7 @@ public class PlayerPlugin implements IGamePluginService {
 
     @Override
     public void start(GameData gameData, World world) {
-        
+
         // Add entities to the world
         player = createPlayerShip(gameData);
         world.addEntity(player);
@@ -34,13 +34,13 @@ public class PlayerPlugin implements IGamePluginService {
         float x = gameData.getDisplayWidth() / 2;
         float y = gameData.getDisplayHeight() / 2;
         float radians = 3.1415f / 2;
-        
+
         Entity playerShip = new Player();
         playerShip.setRadius(4);
         playerShip.add(new LifePart(3, 0));
         playerShip.add(new MovingPart(deacceleration, acceleration, maxSpeed, rotationSpeed));
         playerShip.add(new PositionPart(x, y, radians));
-        
+
         return playerShip;
     }
 
