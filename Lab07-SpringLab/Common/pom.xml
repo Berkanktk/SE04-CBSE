@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>dk.sdu.mmmi.cbse</groupId>
-        <artifactId>Lab08-SpringLab</artifactId>
+        <artifactId>Lab07-SpringLab</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
     <artifactId>Common</artifactId>
