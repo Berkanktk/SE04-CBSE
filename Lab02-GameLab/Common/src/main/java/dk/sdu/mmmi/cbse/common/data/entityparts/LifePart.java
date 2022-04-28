@@ -43,7 +43,7 @@ public class LifePart implements EntityPart {
         this.expiration = expiration;
     }
 
-    public void reduceExpiration(float delta){
+    public void reduceExpiration(float delta) {
         this.expiration -= delta;
     }
 

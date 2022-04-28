@@ -75,7 +75,7 @@ public class BulletControlSystem implements IEntityProcessingService {
         shapex[3] = (float) (x + Math.cos(radians + 4 * 3.1415f / 5) * 3);
         shapey[3] = (float) (y + Math.sin(radians + 4 * 3.1415f / 5) * 3);
 
-        bullet.add(new LifePart(1,1));
+        bullet.add(new LifePart(1, 1));
         entity.setShapeX(shapex);
         entity.setShapeY(shapey);
     }
@@ -83,7 +83,7 @@ public class BulletControlSystem implements IEntityProcessingService {
     private boolean checkExpiration(Entity entity) {
         if (entity instanceof Bullet) {
             Bullet e = (Bullet) entity;
-            if(e.isExpired()){
+            if (e.isExpired()) {
                 return true;
             } else {
                 e.increaseDuration();

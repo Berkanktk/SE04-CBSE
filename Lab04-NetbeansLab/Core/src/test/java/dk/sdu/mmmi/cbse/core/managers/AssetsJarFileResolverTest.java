@@ -6,13 +6,15 @@ import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.utils.GdxNativesLoader;
-import java.io.File;
-import java.net.MalformedURLException;
-import static junit.framework.TestCase.assertNotNull;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import static org.mockito.Mockito.*;
+
+import java.io.File;
+import java.net.MalformedURLException;
+
+import static junit.framework.TestCase.assertNotNull;
+import static org.mockito.Mockito.mock;
 
 public class AssetsJarFileResolverTest {
 
@@ -32,6 +34,7 @@ public class AssetsJarFileResolverTest {
 
     /**
      * Test of resolve method, of class AssetsJarFileResolver.
+     *
      * @throws java.net.MalformedURLException
      */
     @Test
@@ -39,7 +42,7 @@ public class AssetsJarFileResolverTest {
 
         // SETUP
         System.out.println("testJarAssetManager");
-       
+
         //TODO: Change for your own settings
         //String jarUrl1 = "/Users/jcs/Workspace/GitHub/SB4-KOM-F20/AsteroidsNetbeansModules/Core/target/Core-1.0-SNAPSHOT.jar!/assets/images/Ship.png";               
         String jarUrl = java.nio.file.Paths.get(new File("").getAbsolutePath(),
@@ -51,7 +54,7 @@ public class AssetsJarFileResolverTest {
         // TEST
         am.load(jarUrl, Texture.class);
         am.finishLoading();
-        
+
         Texture result = am.get(jarUrl, Texture.class);
 
         // ASSERTS

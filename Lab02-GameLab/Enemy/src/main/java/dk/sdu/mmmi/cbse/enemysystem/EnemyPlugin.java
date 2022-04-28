@@ -6,6 +6,7 @@ import dk.sdu.mmmi.cbse.common.data.World;
 import dk.sdu.mmmi.cbse.common.data.entityparts.MovingPart;
 import dk.sdu.mmmi.cbse.common.data.entityparts.PositionPart;
 import dk.sdu.mmmi.cbse.common.services.IGamePluginService;
+
 import java.util.Random;
 
 
@@ -14,7 +15,8 @@ public class EnemyPlugin implements IGamePluginService {
     private Entity enemy;
     private Random random = new Random();
 
-    public EnemyPlugin() {}
+    public EnemyPlugin() {
+    }
 
     @Override
     public void start(GameData gameData, World world) {

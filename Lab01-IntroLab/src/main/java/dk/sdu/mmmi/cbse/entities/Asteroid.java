@@ -61,10 +61,15 @@ public class Asteroid extends SpaceObject {
         }
     }
 
-    public int getType() { return type;}
-    public boolean shouldRemove() { return remove;}
+    public int getType() {
+        return type;
+    }
 
-    public void update(float dt){
+    public boolean shouldRemove() {
+        return remove;
+    }
+
+    public void update(float dt) {
         x += dx * dt;
         y += dy * dt;
 
@@ -75,7 +80,7 @@ public class Asteroid extends SpaceObject {
     }
 
     public void draw(ShapeRenderer sr) {
-        sr.setColor(1,1,1,1);
+        sr.setColor(1, 1, 1, 1);
         sr.begin(ShapeRenderer.ShapeType.Line);
         for (int i = 0, j = shapex.length - 1;
              i < shapex.length;

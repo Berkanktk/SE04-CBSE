@@ -1,17 +1,15 @@
 package dk.sdu.mmmi.cbse.playersystem;
 
-import dk.sdu.mmmi.cbse.bullet.BulletControlSystem;
+import dk.sdu.mmmi.cbse.bullet.PlayerBullet;
 import dk.sdu.mmmi.cbse.common.data.Entity;
 import dk.sdu.mmmi.cbse.common.data.GameData;
-import static dk.sdu.mmmi.cbse.common.data.GameKeys.LEFT;
-import static dk.sdu.mmmi.cbse.common.data.GameKeys.RIGHT;
-import static dk.sdu.mmmi.cbse.common.data.GameKeys.UP;
 import dk.sdu.mmmi.cbse.common.data.World;
 import dk.sdu.mmmi.cbse.common.data.entityparts.LifePart;
 import dk.sdu.mmmi.cbse.common.data.entityparts.MovingPart;
 import dk.sdu.mmmi.cbse.common.data.entityparts.PositionPart;
 import dk.sdu.mmmi.cbse.common.services.IEntityProcessingService;
-import dk.sdu.mmmi.cbse.bullet.PlayerBullet;
+
+import static dk.sdu.mmmi.cbse.common.data.GameKeys.*;
 
 
 public class PlayerControlSystem implements IEntityProcessingService {
@@ -28,7 +26,7 @@ public class PlayerControlSystem implements IEntityProcessingService {
             movingPart.setRight(gameData.getKeys().isDown(RIGHT));
             movingPart.setUp(gameData.getKeys().isDown(UP));
 
-            if (gameData.getKeys().isPressed(6)){
+            if (gameData.getKeys().isPressed(6)) {
                 // System.out.println("Player is shooting!");
                 world.addEntity(shootProjectile(positionPart));
             }
@@ -48,6 +46,7 @@ public class PlayerControlSystem implements IEntityProcessingService {
             updateShape(player);
         }
     }
+
     private Entity shootProjectile(PositionPart playerPos) {
         float deacceleration = 0;
         float acceleration = 500;

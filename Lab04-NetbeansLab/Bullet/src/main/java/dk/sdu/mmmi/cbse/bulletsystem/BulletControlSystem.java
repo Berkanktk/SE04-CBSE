@@ -10,14 +10,15 @@ import dk.sdu.mmmi.cbse.common.data.entityparts.MovingPart;
 import dk.sdu.mmmi.cbse.common.data.entityparts.PositionPart;
 import dk.sdu.mmmi.cbse.common.data.entityparts.TimerPart;
 import dk.sdu.mmmi.cbse.common.services.IEntityProcessingService;
-import static java.lang.Math.cos;
-import static java.lang.Math.sin;
 import org.openide.util.lookup.ServiceProvider;
 import org.openide.util.lookup.ServiceProviders;
 
+import static java.lang.Math.cos;
+import static java.lang.Math.sin;
+
 @ServiceProviders(value = {
-    @ServiceProvider(service = IEntityProcessingService.class),
-    @ServiceProvider(service = BulletSPI.class)})
+        @ServiceProvider(service = IEntityProcessingService.class),
+        @ServiceProvider(service = BulletSPI.class)})
 public class BulletControlSystem implements IEntityProcessingService, BulletSPI {
 
     @Override

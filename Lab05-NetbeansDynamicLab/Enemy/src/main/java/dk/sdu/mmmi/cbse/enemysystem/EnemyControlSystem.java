@@ -3,17 +3,16 @@ package dk.sdu.mmmi.cbse.enemysystem;
 import dk.sdu.mmmi.cbse.common.bullet.BulletSPI;
 import dk.sdu.mmmi.cbse.common.data.Entity;
 import dk.sdu.mmmi.cbse.common.data.GameData;
-import dk.sdu.mmmi.cbse.common.data.GameKeys;
 import dk.sdu.mmmi.cbse.common.data.World;
 import dk.sdu.mmmi.cbse.common.data.entityparts.LifePart;
 import dk.sdu.mmmi.cbse.common.data.entityparts.MovingPart;
 import dk.sdu.mmmi.cbse.common.data.entityparts.PositionPart;
 import dk.sdu.mmmi.cbse.common.enemy.Enemy;
 import dk.sdu.mmmi.cbse.common.services.IEntityProcessingService;
-import java.util.Random;
-
 import org.openide.util.Lookup;
 import org.openide.util.lookup.ServiceProvider;
+
+import java.util.Random;
 
 @ServiceProvider(service = IEntityProcessingService.class)
 public class EnemyControlSystem implements IEntityProcessingService {
@@ -27,7 +26,7 @@ public class EnemyControlSystem implements IEntityProcessingService {
 
             Random rand = new Random();
 
-            if ((int)(Math.random() * 40) == 0) {
+            if ((int) (Math.random() * 40) == 0) {
                 Entity bullet = Lookup.getDefault().lookup(BulletSPI.class).createBullet(enemy, gameData);
                 world.addEntity(bullet);
             }

@@ -26,7 +26,9 @@ public class Bullet extends SpaceObject {
 
     }
 
-    public boolean shouldRemove() { return remove; }
+    public boolean shouldRemove() {
+        return remove;
+    }
 
     public void update(float dt) {
 
@@ -36,13 +38,13 @@ public class Bullet extends SpaceObject {
         wrap();
 
         lifeTimer += dt;
-        if (lifeTimer > lifeTime){
+        if (lifeTimer > lifeTime) {
             remove = true;
         }
     }
 
     public void draw(ShapeRenderer sr) {
-        sr.setColor(1,1,1,1);
+        sr.setColor(1, 1, 1, 1);
         sr.begin(ShapeRenderer.ShapeType.Line);
         sr.circle(x - width / 2, y - height / 2, width / 2);
         sr.end();

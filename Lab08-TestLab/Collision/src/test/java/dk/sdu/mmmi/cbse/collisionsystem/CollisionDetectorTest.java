@@ -9,10 +9,8 @@ import dk.sdu.mmmi.cbse.common.data.Entity;
 import dk.sdu.mmmi.cbse.common.data.World;
 import dk.sdu.mmmi.cbse.common.data.entityparts.LifePart;
 import dk.sdu.mmmi.cbse.common.data.entityparts.PositionPart;
-import org.junit.jupiter.api.*;
 
 /**
- *
  * @author Berkan Kütük
  */
 
@@ -60,13 +58,13 @@ public class CollisionDetectorTest {
         // Creating the first entity
         Entity entity = new Entity();
         entity.setRadius(10);
-        entity.add(new PositionPart(0, 0,0));
+        entity.add(new PositionPart(0, 0, 0));
         entity.add(new LifePart(3));
 
         // Creating the second entity
         Entity entity2 = new Entity();
         entity2.setRadius(10);
-        entity2.add(new PositionPart(5, 5,0));
+        entity2.add(new PositionPart(5, 5, 0));
         entity2.add(new LifePart(3));
 
         // Adding them to the world
@@ -96,13 +94,13 @@ public class CollisionDetectorTest {
         // Creating the first entity
         Entity entity = new Entity();
         entity.setRadius(10);
-        entity.add(new PositionPart(0, 0,0));
+        entity.add(new PositionPart(0, 0, 0));
         entity.add(new LifePart(3));
 
         // Creating the second entity
         Entity entity2 = new Entity();
         entity2.setRadius(10);
-        entity2.add(new PositionPart(20, 20,0));
+        entity2.add(new PositionPart(20, 20, 0));
         entity2.add(new LifePart(3));
 
         // Adding them to the world

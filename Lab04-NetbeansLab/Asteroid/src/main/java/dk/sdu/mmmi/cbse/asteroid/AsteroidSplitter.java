@@ -7,10 +7,11 @@ import dk.sdu.mmmi.cbse.common.data.World;
 import dk.sdu.mmmi.cbse.common.data.entityparts.LifePart;
 import dk.sdu.mmmi.cbse.common.data.entityparts.MovingPart;
 import dk.sdu.mmmi.cbse.common.data.entityparts.PositionPart;
+
 import static java.lang.Math.cos;
 import static java.lang.Math.sin;
 
- class AsteroidSplitter implements IAsteroidSplitter {
+class AsteroidSplitter implements IAsteroidSplitter {
 
     @Override
     public void createSplitAsteroid(Entity e, World world) {

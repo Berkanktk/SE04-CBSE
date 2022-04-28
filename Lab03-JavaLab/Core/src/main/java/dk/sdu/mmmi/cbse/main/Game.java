@@ -6,11 +6,9 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import dk.sdu.mmmi.cbse.asteroid.Asteroid;
-import dk.sdu.mmmi.cbse.bullet.*;
 import dk.sdu.mmmi.cbse.common.data.Entity;
 import dk.sdu.mmmi.cbse.common.data.GameData;
 import dk.sdu.mmmi.cbse.common.data.World;
-import dk.sdu.mmmi.cbse.common.data.entityparts.PositionPart;
 import dk.sdu.mmmi.cbse.common.services.IEntityProcessingService;
 import dk.sdu.mmmi.cbse.common.services.IGamePluginService;
 import dk.sdu.mmmi.cbse.common.services.IPostEntityProcessingService;
@@ -50,7 +48,7 @@ public class Game implements ApplicationListener {
         // SPILocator.locateAll(IGamePluginService.class);
         List<IGamePluginService> igp = SPILocator.locateAll(IGamePluginService.class);
 
-        for (IGamePluginService ig: igp) {
+        for (IGamePluginService ig : igp) {
             ig.start(gameData, world);
         }
     }
@@ -80,7 +78,7 @@ public class Game implements ApplicationListener {
         }
 
         // Post updates
-            for (IPostEntityProcessingService postEntityProcessorService : postEntityProcessors) {
+        for (IPostEntityProcessingService postEntityProcessorService : postEntityProcessors) {
             postEntityProcessorService.process(gameData, world);
         }
     }
@@ -91,11 +89,11 @@ public class Game implements ApplicationListener {
 
             if (entity instanceof Enemy) {
                 sr.setColor(255, 0, 0, 1);
-            } else if(entity instanceof Player) {
+            } else if (entity instanceof Player) {
                 sr.setColor(0, 255, 0, 1);
-            } else if(entity instanceof Asteroid){
-                sr.setColor(255, 160, 0,1);
-            } else if(entity instanceof Bullet){
+            } else if (entity instanceof Asteroid) {
+                sr.setColor(255, 160, 0, 1);
+            } else if (entity instanceof Bullet) {
                 sr.setColor(0, 1, 0, 1);
             }
 
@@ -105,8 +103,8 @@ public class Game implements ApplicationListener {
             float[] shapey = entity.getShapeY();
 
             for (int i = 0, j = shapex.length - 1;
-                    i < shapex.length;
-                    j = i++) {
+                 i < shapex.length;
+                 j = i++) {
 
                 sr.line(shapex[i], shapey[i], shapex[j], shapey[j]);
             }

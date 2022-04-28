@@ -7,6 +7,7 @@ import dk.sdu.mmmi.cbse.common.data.entityparts.LifePart;
 import dk.sdu.mmmi.cbse.common.data.entityparts.MovingPart;
 import dk.sdu.mmmi.cbse.common.data.entityparts.PositionPart;
 import dk.sdu.mmmi.cbse.common.services.IGamePluginService;
+
 import java.util.Random;
 
 
@@ -15,7 +16,8 @@ public class EnemyPlugin implements IGamePluginService {
     private Entity enemy;
     private Random random = new Random();
 
-    public EnemyPlugin() {}
+    public EnemyPlugin() {
+    }
 
     @Override
     public void start(GameData gameData, World world) {
@@ -45,7 +47,7 @@ public class EnemyPlugin implements IGamePluginService {
 
         Entity enemyShip = new Enemy();
         enemyShip.setRadius(4);
-        enemyShip.add(new LifePart(3,0));
+        enemyShip.add(new LifePart(3, 0));
         enemyShip.add(new MovingPart(deacceleration, acceleration, maxSpeed, rotationSpeed));
         enemyShip.add(new PositionPart(x, y, radians));
 

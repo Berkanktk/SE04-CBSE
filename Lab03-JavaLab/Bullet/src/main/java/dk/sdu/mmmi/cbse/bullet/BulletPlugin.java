@@ -20,7 +20,7 @@ public class BulletPlugin implements IGamePluginService {
         bullets.addAll(world.getEntities(EnemyBullet.class));
         bullets.addAll(world.getEntities(PlayerBullet.class));
 
-        for(Entity e : bullets){
+        for (Entity e : bullets) {
             world.removeEntity(e);
         }
     }

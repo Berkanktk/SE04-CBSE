@@ -2,17 +2,19 @@ package dk.sdu.mmmi.cbse.asteroidsnetbeansmodules;
 
 import dk.sdu.mmmi.cbse.common.services.IEntityProcessingService;
 import dk.sdu.mmmi.cbse.common.services.IGamePluginService;
-import java.io.IOException;
-import static java.nio.file.Files.copy;
-import static java.nio.file.Paths.get;
-import static java.nio.file.StandardCopyOption.REPLACE_EXISTING;
-import java.util.List;
-import java.util.concurrent.CopyOnWriteArrayList;
-import java.util.logging.Level;
 import junit.framework.Test;
 import org.netbeans.junit.NbModuleSuite;
 import org.netbeans.junit.NbTestCase;
 import org.openide.util.Lookup;
+
+import java.io.IOException;
+import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
+import java.util.logging.Level;
+
+import static java.nio.file.Files.copy;
+import static java.nio.file.Paths.get;
+import static java.nio.file.StandardCopyOption.REPLACE_EXISTING;
 
 public class ApplicationTest extends NbTestCase {
 
@@ -25,7 +27,7 @@ public class ApplicationTest extends NbTestCase {
         return NbModuleSuite.createConfiguration(ApplicationTest.class).
                 gui(false).
                 failOnMessage(Level.WARNING). // works at least in RELEASE71
-                failOnException(Level.INFO).
+                        failOnException(Level.INFO).
                 enableClasspathModules(false).
                 clusters(".*").
                 suite(); // RELEASE71+, else use NbModuleSuite.create(NbModuleSuite.createConfiguration(...))

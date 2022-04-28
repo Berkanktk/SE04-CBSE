@@ -1,4 +1,5 @@
 # Komponentbaserede-systemer - Asteroids/Exercises
+
 F = Færdiggjort  
 B = Begyndt  
 IB = Ikke-begyndt  
@@ -15,6 +16,6 @@ IB = Ikke-begyndt
 | 07  | 30/3 | SpringLab          | SpringLab                | F           |
 | 08  | 6/4  | TestLab            | AsteroidsNetbeansModules | F           |
 
-
 ## Hvordan man kører labs
+
 Åben hvert lab individuelt

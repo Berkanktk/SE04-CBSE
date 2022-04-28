@@ -6,6 +6,7 @@ import dk.sdu.mmmi.cbse.common.data.World;
 import dk.sdu.mmmi.cbse.common.data.entityparts.MovingPart;
 import dk.sdu.mmmi.cbse.common.data.entityparts.PositionPart;
 import dk.sdu.mmmi.cbse.common.services.IEntityProcessingService;
+
 import java.util.Random;
 
 public class EnemyControlSystem implements IEntityProcessingService {
@@ -19,8 +20,8 @@ public class EnemyControlSystem implements IEntityProcessingService {
             PositionPart positionPart = enemy.getPart(PositionPart.class);
             MovingPart movingPart = enemy.getPart(MovingPart.class);
 
-            if (random.nextDouble() > 0.8){
-                direction_right = (direction_right == false) ? true: false;
+            if (random.nextDouble() > 0.8) {
+                direction_right = (direction_right == false) ? true : false;
             }
 
             movingPart.setLeft(!direction_right);

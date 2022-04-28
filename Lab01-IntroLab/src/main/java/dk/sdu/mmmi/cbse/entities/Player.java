@@ -59,7 +59,7 @@ public class Player extends SpaceObject {
         shapey[3] = y + MathUtils.sin(radians + 4 * 3.1415f / 5) * 8;
     }
 
-    private void setFlame(){
+    private void setFlame() {
         flameX[0] = x + MathUtils.cos(radians - 5 * 3.1415f / 6) * 5;
         flameY[0] = y + MathUtils.sin(radians - 5 * 3.1415f / 6) * 5;
 
@@ -83,7 +83,7 @@ public class Player extends SpaceObject {
         up = b;
     }
 
-    public void shoot(){
+    public void shoot() {
         if (bullets.size() == MAX_BULLETS) return;
         bullets.add(new Bullet(x, y, radians));
     }
@@ -107,7 +107,7 @@ public class Player extends SpaceObject {
             dy += MathUtils.sin(radians) * acceleration * dt;
 
             acceleratingTimer += dt;
-            if (acceleratingTimer > 0.1f){
+            if (acceleratingTimer > 0.1f) {
                 acceleratingTimer = 0;
             }
         } else {
@@ -133,7 +133,7 @@ public class Player extends SpaceObject {
         setShape();
 
         // set flame
-        if (up){
+        if (up) {
             setFlame();
         }
 
@@ -150,16 +150,16 @@ public class Player extends SpaceObject {
 
         // Draw player
         for (int i = 0, j = shapex.length - 1;
-                i < shapex.length;
-                j = i++) {
+             i < shapex.length;
+             j = i++) {
 
             sr.line(shapex[i], shapey[i], shapex[j], shapey[j]);
 
         }
 
         // Draw flames
-        if (up){
-            for (int i = 0, j = flameX.length - 1; i < flameX.length; j = i++){
+        if (up) {
+            for (int i = 0, j = flameX.length - 1; i < flameX.length; j = i++) {
 
                 sr.line(flameX[i], flameY[i], flameX[j], flameY[j]);
 

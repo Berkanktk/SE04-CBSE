@@ -3,10 +3,12 @@ package org.netbeans.modules.autoupdate.silentupdate;
 /**
  *
  */
+
+import org.openide.modules.ModuleInstall;
+
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
-import org.openide.modules.ModuleInstall;
 
 /**
  * Manages a module's lifecycle. Remember that an installer is optional and

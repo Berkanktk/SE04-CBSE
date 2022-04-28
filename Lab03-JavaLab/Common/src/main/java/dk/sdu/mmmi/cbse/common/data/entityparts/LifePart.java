@@ -41,14 +41,14 @@ public class LifePart implements EntityPart {
 
     public void setExpiration(float expiration) {
         this.expiration = expiration;
-    }  
-    
-    public void reduceExpiration(float delta){
+    }
+
+    public void reduceExpiration(float delta) {
         this.expiration -= delta;
     }
-    
+
     @Override
     public void process(GameData gameData, Entity entity) {
-        
+
     }
 }
