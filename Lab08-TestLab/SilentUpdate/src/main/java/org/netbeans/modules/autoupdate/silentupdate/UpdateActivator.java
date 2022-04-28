@@ -16,13 +16,6 @@ import java.util.concurrent.TimeUnit;
  */
 public class UpdateActivator extends ModuleInstall {
 
-    private final ScheduledExecutorService exector = Executors.newScheduledThreadPool(1);
-
-    @Override
-    public void restored() {
-        exector.scheduleAtFixedRate(doCheck, 5000, 5000, TimeUnit.MILLISECONDS);
-    }
-
     private static final Runnable doCheck = new Runnable() {
         @Override
         public void run() {
@@ -32,6 +25,12 @@ public class UpdateActivator extends ModuleInstall {
         }
 
     };
+    private final ScheduledExecutorService exector = Executors.newScheduledThreadPool(1);
+
+    @Override
+    public void restored() {
+        exector.scheduleAtFixedRate(doCheck, 5000, 5000, TimeUnit.MILLISECONDS);
+    }
 
     @Override
     public void uninstalled() {

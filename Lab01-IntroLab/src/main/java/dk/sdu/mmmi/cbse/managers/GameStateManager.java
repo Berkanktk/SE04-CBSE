@@ -5,11 +5,10 @@ import dk.sdu.mmmi.cbse.gamestates.PlayState;
 
 public class GameStateManager {
 
-    // current game state
-    private GameState gameState;
-
     public static final int MENU = 0;
     public static final int PLAY = 893746;
+    // current game state
+    private GameState gameState;
 
     public GameStateManager() {
         setState(PLAY);

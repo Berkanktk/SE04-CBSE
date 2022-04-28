@@ -31,12 +31,12 @@ public class Entity implements Serializable {
         return (E) parts.get(partClass);
     }
 
-    public void setRadius(float r) {
-        this.radius = r;
-    }
-
     public float getRadius() {
         return radius;
+    }
+
+    public void setRadius(float r) {
+        this.radius = r;
     }
 
     public String getID() {

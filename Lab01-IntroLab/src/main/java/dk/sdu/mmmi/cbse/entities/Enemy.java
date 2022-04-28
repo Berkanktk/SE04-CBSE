@@ -8,9 +8,8 @@ import dk.sdu.mmmi.cbse.main.Game;
 import java.util.ArrayList;
 
 public class Enemy extends SpaceObject {
-    private ArrayList<Bullet> bullets;
     private final int MAX_BULLETS = 1;
-
+    private ArrayList<Bullet> bullets;
     private float maxSpeed;
     private float acceleration;
     private float deceleration;

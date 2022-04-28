@@ -23,6 +23,10 @@ public class ApplicationTest extends NbTestCase {
     private static final String REM_ENEMY_UPDATES_FILE = "/Users/berkankutuk/Documents/SE04/SE04-CBS01-AsteroidsGame/AsteroidsNetbeansModules/application/src/test/resources/remenemy/updates.xml";
     private static final String UPDATES_FILE = "/Users/berkankutuk/netbeans_site/updates.xml";
 
+    public ApplicationTest(String n) {
+        super(n);
+    }
+
     public static Test suite() {
         return NbModuleSuite.createConfiguration(ApplicationTest.class).
                 gui(false).
@@ -31,10 +35,6 @@ public class ApplicationTest extends NbTestCase {
                 enableClasspathModules(false).
                 clusters(".*").
                 suite(); // RELEASE71+, else use NbModuleSuite.create(NbModuleSuite.createConfiguration(...))
-    }
-
-    public ApplicationTest(String n) {
-        super(n);
     }
 
     public void testApplication() throws InterruptedException, IOException {

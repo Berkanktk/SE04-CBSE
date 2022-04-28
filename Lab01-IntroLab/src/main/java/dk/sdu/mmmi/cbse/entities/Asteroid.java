@@ -4,11 +4,10 @@ import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.MathUtils;
 
 public class Asteroid extends SpaceObject {
-    private int type;
     public static final int SMALL = 0;
     public static final int MEDIUM = 1;
     public static final int LARGE = 2;
-
+    private int type;
     private int numPoints;
     private float[] dists;
 

@@ -9,12 +9,10 @@ import java.util.ArrayList;
 
 public class Player extends SpaceObject {
 
+    private final int MAX_BULLETS = 4;
     private float[] flameX;
     private float[] flameY;
-
     private ArrayList<Bullet> bullets;
-    private final int MAX_BULLETS = 4;
-
     private boolean left;
     private boolean right;
     private boolean up;

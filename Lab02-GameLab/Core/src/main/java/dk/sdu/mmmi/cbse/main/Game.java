@@ -25,12 +25,12 @@ import java.util.List;
 public class Game implements ApplicationListener {
 
     private static OrthographicCamera cam;
-    private ShapeRenderer sr;
     private final GameData gameData = new GameData();
     private final List<IEntityProcessingService> entityProcessors = new ArrayList<>();
     private final List<IPostEntityProcessingService> postEntityProcessors = new ArrayList<>();
     private final List<IGamePluginService> entityPlugins = new ArrayList<>();
     private final World world = new World();
+    private ShapeRenderer sr;
 
     @Override
     public void create() {

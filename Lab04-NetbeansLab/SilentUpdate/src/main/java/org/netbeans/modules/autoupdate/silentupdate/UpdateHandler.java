@@ -20,23 +20,12 @@ import java.util.logging.Logger;
 public final class UpdateHandler {
 
     public static final String SILENT_UC_CODE_NAME = "org_netbeans_modules_autoupdate_silentupdate_update_center"; // NOI18N
-    private static Collection<UpdateElement> locallyInstalled = new ArrayList<>();
     private static final Logger LOGGER = Logger.getLogger(UpdateHandler.class.getPackage().getName());
+    private static Collection<UpdateElement> locallyInstalled = new ArrayList<>();
 
     public static boolean timeToCheck() {
         // every startup
         return true;
-    }
-
-    public static class UpdateHandlerException extends Exception {
-
-        public UpdateHandlerException(String msg) {
-            super(msg);
-        }
-
-        public UpdateHandlerException(String msg, Throwable th) {
-            super(msg, th);
-        }
     }
 
     public static void checkAndHandleUpdates() {
@@ -210,7 +199,7 @@ public final class UpdateHandler {
         for (UpdateUnit unit : updateUnits) {
             if (unit.getInstalled() == null) { // means the plugin is not installed yet
                 if (!unit.getAvailableUpdates().isEmpty()) { // is available
-                    elements4install.add(unit.getAvailableUpdates().get(0)); // add plugin with highest version                    
+                    elements4install.add(unit.getAvailableUpdates().get(0)); // add plugin with highest version
                 }
             }
         }
@@ -328,6 +317,17 @@ public final class UpdateHandler {
 
     static Restarter doInstall(InstallSupport support, Installer installer) throws OperationException {
         return support.doInstall(installer, null);
+    }
+
+    public static class UpdateHandlerException extends Exception {
+
+        public UpdateHandlerException(String msg) {
+            super(msg);
+        }
+
+        public UpdateHandlerException(String msg, Throwable th) {
+            super(msg, th);
+        }
     }
 
 }

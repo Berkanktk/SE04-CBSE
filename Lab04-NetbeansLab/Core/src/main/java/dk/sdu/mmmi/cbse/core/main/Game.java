@@ -25,12 +25,36 @@ import java.util.concurrent.CopyOnWriteArrayList;
 public class Game implements ApplicationListener {
 
     private static OrthographicCamera cam;
-    private ShapeRenderer sr;
     private final Lookup lookup = Lookup.getDefault();
     private final GameData gameData = new GameData();
+    private ShapeRenderer sr;
     private World world = new World();
     private List<IGamePluginService> gamePlugins = new CopyOnWriteArrayList<>();
     private Lookup.Result<IGamePluginService> result;
+    private final LookupListener lookupListener = new LookupListener() {
+        @Override
+        public void resultChanged(LookupEvent le) {
+
+            Collection<? extends IGamePluginService> updated = result.allInstances();
+
+            for (IGamePluginService us : updated) {
+                // Newly installed modules
+                if (!gamePlugins.contains(us)) {
+                    us.start(gameData, world);
+                    gamePlugins.add(us);
+                }
+            }
+
+            // Stop and remove module
+            for (IGamePluginService gs : gamePlugins) {
+                if (!updated.contains(gs)) {
+                    gs.stop(gameData, world);
+                    gamePlugins.remove(gs);
+                }
+            }
+        }
+
+    };
 
     @Override
     public void create() {
@@ -132,29 +156,4 @@ public class Game implements ApplicationListener {
     private Collection<? extends IPostEntityProcessingService> getPostEntityProcessingServices() {
         return lookup.lookupAll(IPostEntityProcessingService.class);
     }
-
-    private final LookupListener lookupListener = new LookupListener() {
-        @Override
-        public void resultChanged(LookupEvent le) {
-
-            Collection<? extends IGamePluginService> updated = result.allInstances();
-
-            for (IGamePluginService us : updated) {
-                // Newly installed modules
-                if (!gamePlugins.contains(us)) {
-                    us.start(gameData, world);
-                    gamePlugins.add(us);
-                }
-            }
-
-            // Stop and remove module
-            for (IGamePluginService gs : gamePlugins) {
-                if (!updated.contains(gs)) {
-                    gs.stop(gameData, world);
-                    gamePlugins.remove(gs);
-                }
-            }
-        }
-
-    };
 }
