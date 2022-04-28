@@ -13,10 +13,6 @@ import static java.lang.Math.cos;
 import static java.lang.Math.sin;
 import static java.lang.Math.sqrt;
 
-/**
- *
- * @author jcs
- */
 public class PlayerControlSystem implements IEntityProcessingService {
 
     @Override

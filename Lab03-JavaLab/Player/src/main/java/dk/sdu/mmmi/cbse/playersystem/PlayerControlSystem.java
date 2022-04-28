@@ -14,10 +14,6 @@ import dk.sdu.mmmi.cbse.common.services.IEntityProcessingService;
 import dk.sdu.mmmi.cbse.bullet.PlayerBullet;
 
 
-/**
- *
- * @author jcs
- */
 public class PlayerControlSystem implements IEntityProcessingService {
 
     @Override

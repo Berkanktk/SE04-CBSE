@@ -13,10 +13,6 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-/**
- *
- * @author jcs
- */
 public class CollisionDetectorTest {
 
     public CollisionDetectorTest() {
